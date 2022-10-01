@@ -98,21 +98,32 @@ names(marriage_data)
 
 # UNIVARIATE GRAPHS
 
-# Categorical Data
+# 1 . Categorical Data
 ggplot(Marriage, aes (x = race)) + geom_bar(fill = "cornflowerblue",
                                             color = "black") + labs(x = "Race",
                                                                     y = "Frequency",
                                                                     title = "Participants by Race")
 
-# Numerical data
+#Adding labels to your graph
+library(dplyr)
+newdata <- Marriage %>%
+  count(race)
+
+# new plot with labels
+ggplot(newdata, aes (x = race, y = n)) + geom_bar(fill = "cornflowerblue",
+                                            color = "black", stat = "identity") + geom_text(aes(label = n),
+                                                                         vjust=-0.5) + labs(x = "Race",
+                                                                                            y = "Frequency",
+                                                                                            title = "Participants by Race")
+# 2. Numerical data
 
 ggplot(Marriage, aes(x=age)) + geom_histogram( fill = "cornflowerblue",
                                                color = "black",
                                                bins = 10
                                                ) + labs(x = "Age",
-                                                                       y = "Frequency",
-                                                                       title = "Participants by Age",
-                                                                       subtitle = "Age distribution")
+                                                        y = "Frequency",
+                                                        title = "Participants by Age",
+                                                        subtitle = "Age distribution")
 
 # BIVARIATE GRAPHS
 # Categorical vs Categorical
