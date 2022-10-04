@@ -84,14 +84,14 @@ bar() # categorical/quantitative
 ggplot() + geom_point()
 
 
-# Regression / Correlation Analysis
+# Practice
   
 install.packages("mosaicData")
 library(mosaicData)
 library(ggplot2)
 library(scales)
 
-
+# load data from mosaicData package
 marriage_data <- data(Marriage, package = "mosaicData")
 Marriage
 names(marriage_data)
@@ -137,6 +137,3 @@ ggplot(mpg, aes(x = class, fill = drv)) + geom_bar(position = "stack") + labs(x 
 ggplot(insurance, aes(x = bmi, y = charges)) + geom_point()
 
 
-select(starwars, gender == "feminine" &
-         homeworld == "Alderaan")
-starwars
